@@ -1,0 +1,76 @@
+# deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app-deploy
+  labels:
+    type: restapi
+spec:
+  selector: 
+    matchLabels:
+      app: flask-app
+  replicas: 1
+  template:
+    metadata:
+      name: flask-app-tmpl
+      labels:
+        app: flask-app
+    spec:
+      containers:
+        - name: gateway
+          image: muratkas/gateway:latest
+          ports:
+            - containerPort: 8080
+        - name: database
+          image: muratkas/database:latest
+          ports:
+            - containerPort: 10000
+        - name: app1-container
+          image: muratkas/app1-container:latest
+          ports:
+            - containerPort: 8001
+        - name: app2-container
+          image: muratkas/app2-container:latest
+          ports:
+            - containerPort: 8002
+        - name: app3-container
+          image: muratkas/app3-container:latest
+          ports:
+            - containerPort: 8003
+        - name: app4-container
+          image: muratkas/app4-container:latest
+          ports:
+            - containerPort: 8004
+        - name: app5-container
+          image: muratkas/app5-container:latest
+          ports:
+            - containerPort: 8005
+        - name: app6-container
+          image: muratkas/app6-container:latest
+          ports:
+            - containerPort: 8006
+        - name: app1-container-replica
+          image: muratkas/app1-container-replica:latest
+          ports:
+            - containerPort: 9001
+        - name: app2-container-replica
+          image: muratkas/app2-container-replica:latest
+          ports:
+            - containerPort: 9002
+        - name: app3-container-replica
+          image: muratkas/app3-container-replica:latest
+          ports:
+            - containerPort: 9003
+        - name: app4-container-replica
+          image: muratkas/app4-container-replica:latest
+          ports:
+            - containerPort: 9004
+        - name: app5-container-replica
+          image: muratkas/app5-container-replica:latest
+          ports:
+            - containerPort: 9005
+        - name: app6-container-replica
+          image: muratkas/app6-container-replica:latest
+          ports:
+            - containerPort: 9006
