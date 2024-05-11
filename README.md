@@ -46,8 +46,5 @@ Configuration tasks were broken down into two YAML files: one for deployment spe
 #### Deployment Methodology
 'kubectl create' commands were used to integrate configurations into the Kubernetes environment, simplifying deployment and improving reliability.
 
-## Screenshots
-Insert screenshots here.
-
 ## Conclusion
 The Honeypot Project aims to create a resilient and adaptive network environment. The integration of Flask, Kubernetes, Minikube, and Docker enabled the creation of a robust system capable of responding to dynamic security challenges.
